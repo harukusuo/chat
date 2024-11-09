@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatTime</title>
+    <link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="salas.css">
+</head>
+<body>
+    <header>
+        <img src="icon.png" alt="Icon">
+        <h1>ChatTime</h1>
+    </header>
+    <div class="rooms-container">
+        <h2>Salas disponíveis</h2>
+        <div class="rooms" id="rooms">
+
+        </div>
+    </div>
+    <script src="salas.js"></script>
+    <script>
+        async function fetchRooms() {
+            try {
+                const response = await fetch('https://chat-api-sahs.vercel.app/salas', {
+                    headers: {
+                        'token': 'seu-token-aqui',
+                        'iduser': 'seu-iduser-aqui',
+                        'nick': 'seu-nick-aqui'
+                    }
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Erro ao buscar salas:', response.statusText, errorText);
+                    return;
+                }
+                const rooms = await response.json();
+                const roomsContainer = document.getElementById('rooms');
+                rooms.forEach(room => {
+                    const button = document.createElement('button');
+                    button.className = 'room-button';
+                    button.onclick = () => goToChat(room.nome);
+                    button.innerHTML = `
+                        <div class="room-info">
+                            <h3>${room.nome}</h3>
+                            <p>${room.descricao}</p>
+                        </div>
+                    `;
+                    roomsContainer.appendChild(button);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar salas:', error);
+            }
+        }
+
+        fetchRooms();
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+.rooms-container {
+    text-align: center;
+    background-color: rgba(194, 49, 49, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.rooms-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.rooms {
+    background-color: #C23131;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.room-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.room-button:hover {
+    background-color: #DE4545;
+    color: white;
+}
+
+.room-info {
+    margin: 0;
+    padding: 0;
+}
+
+.room-info h3, .room-info p {
+    margin: 0;
+    padding: 0;
+}

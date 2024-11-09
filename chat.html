@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatTime - Sala de Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <header>
+        <img src="icon.png" alt="Icon">
+        <h1>ChatTime</h1>
+    </header>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="back-button" onclick="goBack()">Voltar</button>
+            <span id="chat-room-name">Bordando</span>
+        </div>
+        <div class="messages" id="messages-container">
+            <div class="message">
+                <span class="sender">Ana</span>
+                Oii! Tudo bem?
+            </div>
+            <div class="message">
+                <span class="sender">Camila</span>
+                Olá gente.
+            </div>
+            <div class="message">
+                <span class="sender">Tai</span>
+                Boa tarde! Tudo bem com vocês?
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="message-input" placeholder="Digite sua mensagem">
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>
