@@ -21,7 +21,7 @@ async function fetchMessages() {
         // timestamp 24h ago
         const timestamp = Date.now() - 24 * 60 * 60 * 1000;
 
-        const response = await fetch(`http://localhost:5000/sala/mensagens?idSala=${idSala}&timestamp=${timestamp}`, {
+        const response = await fetch(`https://api-chat-sahs.vercel.app/sala/mensagens?idSala=${idSala}&timestamp=${timestamp}`, {
             headers: {
                 'token': token,
                 'iduser': idUser,
@@ -69,7 +69,7 @@ async function sendMessage() {
         const idSala = urlParams.get('id');
 
         try {
-            const response = await fetch('http://localhost:5000/sala/mensagem', {
+            const response = await fetch('https://api-chat-sahs.vercel.app/sala/mensagem', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

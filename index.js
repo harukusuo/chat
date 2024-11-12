@@ -6,7 +6,7 @@ document.getElementById('entrar-button').addEventListener('click', async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:5000/entrar', {
+        const response = await fetch('https://api-chat-sahs.vercel.app/entrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

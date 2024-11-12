@@ -16,7 +16,7 @@ async function fetchRooms() {
             return;
         }
 
-        const response = await fetch('http://localhost:5000/salas', {
+        const response = await fetch('https://api-chat-sahs.vercel.app/salas', {
             headers: {
                 'token': token,
                 'iduser': idUser,
