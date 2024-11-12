@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <header>
         <img src="icon.png" alt="Icon">
@@ -19,36 +21,6 @@
         <button id="entrar-button">Entrar</button>
     </div>
     <script src="index.js"></script>
-    <script>
-        document.getElementById('entrar-button').addEventListener('click', async () => {
-            const nickname = document.getElementById('nickname-input').value;
-            if (nickname) {
-                try {
-                    const response = await fetch('https://chat-api-sahs.vercel.app/entrar', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ nick: nickname })
-                    });
-                    const data = await response.json();
-                    if (response.ok) {
-                        console.log('Usuário registrado:', data);
-                        
-                        localStorage.setItem('token', data.token);
-                        localStorage.setItem('idUser', data.idUser);
-                        localStorage.setItem('nick', data.nick);
-                        window.location.href = 'salas.html';
-                    } else {
-                        console.error('Erro ao registrar usuário:', data);
-                    }
-                } catch (error) {
-                    console.error('Erro na requisição:', error);
-                }
-            } else {
-                alert('Por favor, insira um apelido.');
-            }
-        });
-    </script>
 </body>
+
 </html>

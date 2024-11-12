@@ -20,41 +20,5 @@
         </div>
     </div>
     <script src="salas.js"></script>
-    <script>
-        async function fetchRooms() {
-            try {
-                const response = await fetch('https://chat-api-sahs.vercel.app/salas', {
-                    headers: {
-                        'token': 'seu-token-aqui',
-                        'iduser': 'seu-iduser-aqui',
-                        'nick': 'seu-nick-aqui'
-                    }
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error('Erro ao buscar salas:', response.statusText, errorText);
-                    return;
-                }
-                const rooms = await response.json();
-                const roomsContainer = document.getElementById('rooms');
-                rooms.forEach(room => {
-                    const button = document.createElement('button');
-                    button.className = 'room-button';
-                    button.onclick = () => goToChat(room.nome);
-                    button.innerHTML = `
-                        <div class="room-info">
-                            <h3>${room.nome}</h3>
-                            <p>${room.descricao}</p>
-                        </div>
-                    `;
-                    roomsContainer.appendChild(button);
-                });
-            } catch (error) {
-                console.error('Erro ao buscar salas:', error);
-            }
-        }
-
-        fetchRooms();
-    </script>
 </body>
 </html>
