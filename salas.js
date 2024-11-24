@@ -1,6 +1,6 @@
 function goToChat(roomName, roomId) {
     // Redirecionar para a sala de chat correspondente
-    window.location.href = `./chat?room=${encodeURIComponent(roomName)}&id=${roomId}`;
+    window.location.href = `./chat.html?room=${encodeURIComponent(roomName)}&id=${roomId}`;
 }
 
 async function fetchRooms() {
